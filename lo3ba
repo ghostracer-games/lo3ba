@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لعبة المربع</title><style>
+body {
+    background: #15152b;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+
+h1 {
+    color: gold;
+}
+
+#box {
+    width: 80px;
+    height: 80px;
+    background: red;
+    position: absolute;
+    border-radius: 15px;
+    cursor: pointer;
+}
+</style></head><body><h1>🎮 لعبة المربع</h1><h2>نقاطك: <span id="score">0</span></h2><p>اضغط على المربع لجمع النقاط!</p><button onclick="start()">ابدأ اللعبة</button>
+
+<div id="box" onclick="move()" style="display:none"></div><script>
+let score = 0;
+
+function start() {
+    score = 0;
+    document.getElementById("score").innerText = score;
+    document.getElementById("box").style.display = "block";
+    move();
+}
+
+function move() {
+    score++;
+    document.getElementById("score").innerText = score;
+
+    let box = document.getElementById("box");
+
+    box.style.left = Math.random() * (window.innerWidth - 90) + "px";
+    box.style.top = Math.random() * (window.innerHeight - 90) + "px";
+}
+</script></body>
+</html>
